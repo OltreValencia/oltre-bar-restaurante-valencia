@@ -1135,6 +1135,127 @@
     vertical-align: -0.1em;
   }
 
+
+  /* ---------- ALLERGENI: numeretti, icona peperoncino, pulsante e pagina ---------- */
+  .dish-name .alg {
+    font-family: var(--sans);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    color: var(--accent);
+    opacity: 0.9;
+    margin-left: 6px;
+    white-space: nowrap;
+  }
+  .dish-name .qty {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--text-muted);
+    margin-left: 6px;
+    white-space: nowrap;
+  }
+  .dish-name .spicy {
+    display: inline-flex;
+    vertical-align: -2px;
+    margin-left: 5px;
+    color: #E5533D;
+  }
+  .dish-name .spicy svg { width: 14px; height: 14px; display: block; }
+
+  .allergen-bar { margin: -6px 0 6px; display: flex; }
+  .allergen-btn,
+  .allergen-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--accent);
+    background: rgba(255,255,255,0.07);
+    border: 1px solid var(--accent);
+    border-radius: 999px;
+    padding: 8px 16px 8px 12px;
+    min-height: 44px;
+    cursor: pointer;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .allergen-btn svg,
+  .allergen-back svg {
+    width: 20px;
+    height: 20px;
+    display: block;
+    flex-shrink: 0;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .allergen-btn:hover, .allergen-btn:focus-visible,
+  .allergen-back:hover, .allergen-back:focus-visible {
+    background: var(--accent);
+    color: var(--pill-active-text);
+  }
+  h2.cat-title .title-ico svg[stroke] { fill: none; }
+  .allergen-btn svg path.alg-warn-triangle,
+  h2.cat-title .title-ico svg path.alg-warn-triangle {
+    stroke: #E53935;
+  }
+  .allergen-list {
+    list-style: none;
+    margin: 8px 0 0;
+    padding: 0;
+  }
+  .allergen-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 16px;
+    font-weight: 500;
+  }
+  .allergen-list li:last-child { border-bottom: none; }
+  .allergen-list .alg-num {
+    flex: 0 0 auto;
+    order: 1;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent);
+    color: var(--pill-active-text);
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 15px;
+  }
+  .allergen-list .alg-ico {
+    flex: 0 0 auto;
+    order: 2;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(232, 217, 160, 0.18);
+    border: 1.5px solid var(--accent);
+    color: var(--accent);
+  }
+  .allergen-list .alg-ico svg {
+    width: 20px;
+    height: 20px;
+    display: block;
+    fill: currentColor;
+  }
+  .allergen-list .alg-name {
+    order: 3;
+  }
+
 </style>
 </head>
 <body>
@@ -1222,117 +1343,129 @@
 
     <section class="category" id="tapas" hidden>
     <h2 class="cat-title"><span class="title-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 9.5c0-1.5 1-2.5 2.2-2.5.6 0 1.1.2 1.5.6.4-.8 1.2-1.3 2.3-1.3 1.4 0 2.5 1 2.5 2.3 0 .2 0 .4-.1.6 1 .3 1.6 1.1 1.6 2.1 0 1.2-1 2.2-2.3 2.2H8.5C7.1 13.5 7 11.5 7 9.5z"/><path d="M4 15.5c0-1.4 3.6-2.5 8-2.5s8 1.1 8 2.5S16.4 18 12 18s-8-1.1-8-2.5zm0 3.5h16v1.5H4V19z"/></svg></span> <span data-es="Tapas" data-en="Tapas">Tapas</span></h2>
+    <div class="allergen-bar">
+      <button type="button" class="allergen-btn" aria-label="Alérgenos" data-title-es="Alérgenos" data-title-en="Allergens">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path class="alg-warn-triangle" d="M12 3.5 2.8 19.5h18.4L12 3.5z"/><path d="M12 10v4.2"/><path d="M12 16.9v.1"/></svg>
+        <span data-es="Alérgenos" data-en="Allergens">Alérgenos</span>
+      </button>
+    </div>
     <div class="dish">
       <div class="dish-info">
-        <p class="dish-name" data-es="Burratina con “PAPPA AL POMODORO”" data-en="Burratina with “PAPPA AL POMODORO”">Burratina con “PAPPA AL POMODORO”</p>
+        <p class="dish-name"><span data-es="Burratina con “Pappa al pomodoro”" data-en="Burratina with “Pappa al pomodoro”">Burratina con “Pappa al pomodoro”</span><span class="alg">1-7-9</span></p>
       </div>
       <div class="dish-price">9,50 €</div>
     </div>
     <div class="dish">
       <div class="dish-info">
-        <p class="dish-name" data-es="Flor de Calabacín" data-en="Zucchini Flower">Flor de Calabacín</p>
+        <p class="dish-name"><span data-es="Flor de Calabacín" data-en="Zucchini Flower">Flor de Calabacín</span><span class="alg">1-3-7</span></p>
       </div>
       <div class="dish-price">7,50 €</div>
     </div>
     <div class="dish">
       <div class="dish-info">
-        <p class="dish-name" data-es="Focaccia casera lardo y gorgonzola" data-en="Homemade Focaccia with Lardo and Gorgonzola">Focaccia casera lardo y gorgonzola</p>
+        <p class="dish-name"><span data-es="Focaccia lardo y queso zola" data-en="Focaccia with Lardo and Zola Cheese">Focaccia lardo y queso zola</span><span class="alg">1-7</span></p>
       </div>
       <div class="dish-price">9,50 €</div>
     </div>
     <div class="dish">
       <div class="dish-info">
-        <p class="dish-name" data-es="Ceviche de pescado con leche de tigre" data-en="Fish Ceviche with Tiger's Milk">Ceviche de pescado con leche de tigre</p>
+        <p class="dish-name"><span data-es="Ceviche en leche de tigre" data-en="Ceviche in Tiger&#x27;s Milk">Ceviche en leche de tigre</span><span class="alg">4-9</span><span class="spicy" role="img" data-title-es="Picante" data-title-en="Spicy" title="Picante" aria-label="Picante"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.6 3.2c-.5-.3-1.100-.1-1.400.4l-.7 1.300c-.9-.3-1.900-.2-2.700.3C9.300 7 6 11.500 3.500 17.800c-.2.500.2 1 .7.900 6.300-1.100 12.500-5 15-11 .3-.9.100-1.800-.4-2.500l.9-.4c.5-.2.700-.8.400-1.300-.3-.5-.9-.6-1.300-.4l-1.200.1z"/></svg></span></p>
       </div>
-      <div class="dish-price">16,00 €</div>
+      <div class="dish-price">16,80 €</div>
     </div>
     <div class="dish">
       <div class="dish-info">
-        <p class="dish-name" data-es="Tabla de nuestros Embutidos con Focaccia casera" data-en="Selection of our Cured Meats with Homemade Focaccia">Tabla de nuestros Embutidos con Focaccia casera</p>
+        <p class="dish-name"><span data-es="Tabla de nuestros Embutidos con Focaccia casera" data-en="Selection of our Cured Meats with Homemade Focaccia">Tabla de nuestros Embutidos con Focaccia casera</span><span class="alg">1-7</span></p>
       </div>
       <div class="dish-price price-group"><span class="price-label" data-es="media ración" data-en="half portion">media ración</span> <span>9,80 €</span><span class="price-sep">/</span><span class="price-label" data-es="ración entera" data-en="full portion">ración entera</span> <span>17,50 €</span></div>
     </div>
     <div class="dish">
       <div class="dish-info">
-        <p class="dish-name" data-es="Selección de Quesos italianos con Focaccia y Mermelada" data-en="Selection of Italian Cheeses with Focaccia and Jam">Selección de Quesos italianos con Focaccia y Mermelada</p>
+        <p class="dish-name"><span data-es="Selección de Quesos italianos con Focaccia y Mermelada" data-en="Selection of Italian Cheeses with Focaccia and Jam">Selección de Quesos italianos con Focaccia y Mermelada</span><span class="alg">1-7</span></p>
       </div>
       <div class="dish-price price-group"><span class="price-label" data-es="media ración" data-en="half portion">media ración</span> <span>11,50 €</span><span class="price-sep">/</span><span class="price-label" data-es="ración entera" data-en="full portion">ración entera</span> <span>19,50 €</span></div>
     </div>
     <div class="dish">
       <div class="dish-info">
-        <p class="dish-name" data-es="Croquetas casera de Patatas y Queso Pecorino 2 ud" data-en="Homemade Potato and Pecorino Cheese Croquettes — 2 pcs">Croquetas casera de Patatas y Queso Pecorino 2 ud</p>
+        <p class="dish-name"><span data-es="Croquetas casera de Patatas y Queso Pecorino" data-en="Homemade Potato and Pecorino Cheese Croquette">Croquetas casera de Patatas y Queso Pecorino</span><span class="alg">1-3-7</span><span class="qty" data-es="1 ud" data-en="1 pc">1 ud</span></p>
       </div>
-      <div class="dish-price">3,80 €</div>
+      <div class="dish-price">2,00 €</div>
     </div>
     <div class="dish">
       <div class="dish-info">
-        <p class="dish-name" data-es="Anchoas Italiana con Mantequilla de Naranja" data-en="Italian Anchovies with Orange Butter">Anchoas Italiana con Mantequilla de Naranja</p>
+        <p class="dish-name"><span data-es="Anchoas Italiana con Mantequilla de Naranja" data-en="Italian Anchovies with Orange Butter">Anchoas Italiana con Mantequilla de Naranja</span><span class="alg">4-7</span></p>
       </div>
       <div class="dish-price">10,80 €</div>
     </div>
     <div class="dish">
       <div class="dish-info">
-        <p class="dish-name" data-es="Gilda Italiana" data-en="Italian Gilda">Gilda Italiana</p>
+        <p class="dish-name"><span data-es="Gilda Italiana" data-en="Italian Gilda">Gilda Italiana</span><span class="alg">7</span></p>
       </div>
       <div class="dish-price">4,80 €</div>
     </div>
     <div class="dish">
       <div class="dish-info">
-        <p class="dish-name" data-es="Trippa Roja, Menta y Queso Pecorino" data-en="Red Tripe, Mint and Pecorino Cheese">Trippa Roja, Menta y Queso Pecorino</p>
+        <p class="dish-name"><span data-es="Trippa Roja, Menta, Queso Pecorino" data-en="Red Tripe, Mint, Pecorino Cheese">Trippa Roja, Menta, Queso Pecorino</span><span class="alg">7-9</span></p>
       </div>
       <div class="dish-price price-group"><span class="price-label" data-es="media ración" data-en="half portion">media ración</span> <span>7,80 €</span><span class="price-sep">/</span><span class="price-label" data-es="ración entera" data-en="full portion">ración entera</span> <span>10,50 €</span></div>
     </div>
     <div class="dish">
       <div class="dish-info">
-        <p class="dish-name" data-es="Bruschetta “OLTRE”" data-en="“OLTRE” Bruschetta">Bruschetta “OLTRE”</p>
-        <p class="dish-desc" data-es="TOMATE, MOZZARELLA Y GUANCIALE" data-en="TOMATO, MOZZARELLA AND GUANCIALE">TOMATE, MOZZARELLA Y GUANCIALE</p>
+        <p class="dish-name"><span data-es="Bruschetta “OLTRE”" data-en="“OLTRE” Bruschetta">Bruschetta “OLTRE”</span><span class="alg">1-7</span></p>
+        <p class="dish-desc" data-es="TOMATE, MOZZARELLA, GUANCIALE" data-en="TOMATO, MOZZARELLA, GUANCIALE">TOMATE, MOZZARELLA, GUANCIALE</p>
       </div>
-      <div class="dish-price">3,80 €</div>
+      <div class="dish-price">4,80 €</div>
     </div>
   </section>
 
   <section class="category" id="principales" hidden>
     <h2 class="cat-title"><span class="title-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5.2 2v6.5c0 1.1.6 2 1.5 2.5V22h1.4V11c.9-.5 1.5-1.4 1.5-2.5V2H8.4v6.5H7.6V2H5.2z"/><path d="M13.5 2.2c.2 3.5 1 6.2 2.3 7.5V22h1.5V9.7c1.3-1.3 2.1-4 2.3-7.5h-1.5c-.2 2.8-.7 4.8-1.5 5.9-.8-1.1-1.3-3.1-1.5-5.9h-1.6z"/></svg></span> <span data-es="Principales" data-en="Main Courses">Principales</span></h2>
+    <div class="allergen-bar">
+      <button type="button" class="allergen-btn" aria-label="Alérgenos" data-title-es="Alérgenos" data-title-en="Allergens">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path class="alg-warn-triangle" d="M12 3.5 2.8 19.5h18.4L12 3.5z"/><path d="M12 10v4.2"/><path d="M12 16.9v.1"/></svg>
+        <span data-es="Alérgenos" data-en="Allergens">Alérgenos</span>
+      </button>
+    </div>
     <div class="dish">
       <div class="dish-info">
-        <p class="dish-name" data-es="Carpaccio de Ternera alla Piemontese" data-en="Piedmontese-Style Beef Carpaccio">Carpaccio de Ternera alla Piemontese</p>
+        <p class="dish-name"><span data-es="Carpaccio de Ternera alla Piemontese" data-en="Piedmontese-Style Beef Carpaccio">Carpaccio de Ternera alla Piemontese</span><span class="alg">3-4-7</span></p>
       </div>
       <div class="dish-price price-group"><span class="price-label" data-es="media ración" data-en="half portion">media ración</span> <span>9,50 €</span><span class="price-sep">/</span><span class="price-label" data-es="ración entera" data-en="full portion">ración entera</span> <span>15,50 €</span></div>
     </div>
     <div class="dish">
       <div class="dish-info">
-        <p class="dish-name" data-es="Rigatoni all'Amatriciana" data-en="Rigatoni all'Amatriciana">Rigatoni all'Amatriciana</p>
+        <p class="dish-name"><span data-es="Rigatoni all&#x27;Amatriciana" data-en="Rigatoni all&#x27;Amatriciana">Rigatoni all&#x27;Amatriciana</span><span class="alg">1-7</span></p>
       </div>
       <div class="dish-price">13,00 €</div>
     </div>
     <div class="dish">
       <div class="dish-info">
-        <p class="dish-name" data-es="Tagliolino Cacio e Pepe" data-en="Tagliolino Cacio e Pepe">Tagliolino Cacio e Pepe</p>
+        <p class="dish-name"><span data-es="Tagliolino cacio e pepe" data-en="Tagliolino cacio e pepe">Tagliolino cacio e pepe</span><span class="alg">1-3-7</span></p>
       </div>
       <div class="dish-price">12,50 €</div>
     </div>
     <div class="dish">
       <div class="dish-info">
-        <p class="dish-name" data-es="Pappardelle con nuestro Ragù blanco" data-en="Pappardelle with our White Ragù">Pappardelle con nuestro Ragù blanco</p>
+        <p class="dish-name"><span data-es="Pappardelle con nuestro Ragú blanco" data-en="Pappardelle with our White Ragú">Pappardelle con nuestro Ragú blanco</span><span class="alg">1-3-7</span></p>
       </div>
       <div class="dish-price">12,50 €</div>
     </div>
     <div class="dish">
       <div class="dish-info">
-        <p class="dish-name" data-es="Carrillera con Patatas" data-en="Beef Cheek with Potatoes">Carrillera con Patatas</p>
+        <p class="dish-name"><span data-es="Carrillera con Patatas" data-en="Beef Cheek with Potatoes">Carrillera con Patatas</span><span class="alg">9-12</span></p>
       </div>
       <div class="dish-price">18,50 €</div>
     </div>
     <div class="dish">
       <div class="dish-info">
-        <p class="dish-name" data-es="Ventresca de atún pimientos de padrón en su salsa" data-en="Tuna belly with Padrón peppers in its sauce">Ventresca de atún pimientos de padrón en su salsa</p>
+        <p class="dish-name"><span data-es="Ventresca de atún con pimientos del Padrón" data-en="Tuna Belly with Padrón Peppers">Ventresca de atún con pimientos del Padrón</span><span class="alg">4-7-9</span></p>
       </div>
-      <div class="dish-price">22,00 €</div>
+      <div class="dish-price">23,00 €</div>
     </div>
     <div class="dish">
       <div class="dish-info">
-        <p class="dish-name" data-es="Ensalada Mediterranea" data-en="Mediterranean Salad">Ensalada Mediterranea</p>
-        <p class="dish-desc" data-es="LECHUGA, ACEITUNA, ATÚN, FETA TOMATE Y AGUACATE" data-en="LETTUCE, OLIVES, TUNA, FETA, TOMATO AND AVOCADO">LECHUGA, ACEITUNA, ATÚN, FETA TOMATE Y AGUACATE</p>
+        <p class="dish-name"><span data-es="Ensalada Mediterranea" data-en="Mediterranean Salad">Ensalada Mediterranea</span><span class="alg">1-4-7-9</span></p>
+        <p class="dish-desc" data-es="LECHUGA, ACEITUNA, ATÚN, FETA TOMATE, AGUACATE" data-en="LETTUCE, OLIVES, TUNA, FETA, TOMATO, AVOCADO">LECHUGA, ACEITUNA, ATÚN, FETA TOMATE, AGUACATE</p>
       </div>
       <div class="dish-price">13,00 €</div>
     </div>
@@ -1340,45 +1473,51 @@
 
   <section class="category" id="pizza" hidden>
     <h2 class="cat-title"><span class="title-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 12 17.5 4.8A15 15 0 0 1 17.5 19.2L2.5 12zm9.2-2.8a1.45 1.45 0 1 0 0 2.9 1.45 1.45 0 0 0 0-2.9zm1.6 3.7a1.35 1.35 0 1 0 0 2.7 1.35 1.35 0 0 0 0-2.7z"/></svg></span> <span data-es="Pizza" data-en="Pizza">Pizza</span></h2>
+    <div class="allergen-bar">
+      <button type="button" class="allergen-btn" aria-label="Alérgenos" data-title-es="Alérgenos" data-title-en="Allergens">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path class="alg-warn-triangle" d="M12 3.5 2.8 19.5h18.4L12 3.5z"/><path d="M12 10v4.2"/><path d="M12 16.9v.1"/></svg>
+        <span data-es="Alérgenos" data-en="Allergens">Alérgenos</span>
+      </button>
+    </div>
     <div class="dish">
       <div class="dish-info">
-        <p class="dish-name" data-es="Margherita" data-en="Margherita">Margherita</p>
-        <p class="dish-desc" data-es="SALSA DE TOMATE, MOZZARELLA Y ALBAHACA" data-en="TOMATO SAUCE, MOZZARELLA AND BASIL">SALSA DE TOMATE, MOZZARELLA Y ALBAHACA</p>
+        <p class="dish-name"><span data-es="Margherita" data-en="Margherita">Margherita</span><span class="alg">1-7</span></p>
+        <p class="dish-desc" data-es="SALSA DE TOMATE, MOZZARELLA, ALBAHACA" data-en="TOMATO SAUCE, MOZZARELLA, BASIL">SALSA DE TOMATE, MOZZARELLA, ALBAHACA</p>
       </div>
       <div class="dish-price">11,00 €</div>
     </div>
     <div class="dish">
       <div class="dish-info">
-        <p class="dish-name" data-es="Oltre" data-en="Oltre">Oltre</p>
-        <p class="dish-desc" data-es="SALSA DE TOMATE, MOZZARELLA DE BUFALA Y JAMÓN ITALIANO" data-en="TOMATO SAUCE, BUFFALO MOZZARELLA AND ITALIAN HAM">SALSA DE TOMATE, MOZZARELLA DE BUFALA Y JAMÓN ITALIANO</p>
+        <p class="dish-name"><span data-es="Oltre" data-en="Oltre">Oltre</span><span class="alg">1-7</span></p>
+        <p class="dish-desc" data-es="SALSA DE TOMATE, MOZZARELLA DE BUFALA, JAMÓN ITALIANO" data-en="TOMATO SAUCE, BUFFALO MOZZARELLA, ITALIAN HAM">SALSA DE TOMATE, MOZZARELLA DE BUFALA, JAMÓN ITALIANO</p>
       </div>
       <div class="dish-price">17,50 €</div>
     </div>
     <div class="dish">
       <div class="dish-info">
-        <p class="dish-name" data-es="Freschissima" data-en="Freschissima">Freschissima</p>
-        <p class="dish-desc" data-es="SALSA DE TOMATE, MOZZARELLA, SALSICCIA Y SETAS DE TEMPORADA" data-en="TOMATO SAUCE, MOZZARELLA, SAUSAGE AND SEASONAL MUSHROOMS">SALSA DE TOMATE, MOZZARELLA, SALSICCIA Y SETAS DE TEMPORADA</p>
+        <p class="dish-name"><span data-es="Freschissima" data-en="Freschissima">Freschissima</span><span class="alg">1-7</span></p>
+        <p class="dish-desc" data-es="SALSA DE TOMATE, MOZZARELLA, LONGANIZA, CHAMPIÑONES" data-en="TOMATO SAUCE, MOZZARELLA, LONGANIZA SAUSAGE, MUSHROOMS">SALSA DE TOMATE, MOZZARELLA, LONGANIZA, CHAMPIÑONES</p>
       </div>
       <div class="dish-price">13,80 €</div>
     </div>
     <div class="dish">
       <div class="dish-info">
-        <p class="dish-name" data-es="Diavola" data-en="Diavola">Diavola</p>
+        <p class="dish-name"><span data-es="Diavola" data-en="Diavola">Diavola</span><span class="alg">1-7</span><span class="spicy" role="img" data-title-es="Picante" data-title-en="Spicy" title="Picante" aria-label="Picante"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.6 3.2c-.5-.3-1.100-.1-1.400.4l-.7 1.300c-.9-.3-1.900-.2-2.700.3C9.300 7 6 11.500 3.500 17.800c-.2.500.2 1 .7.900 6.300-1.100 12.500-5 15-11 .3-.9.100-1.800-.4-2.500l.9-.4c.5-.2.700-.8.400-1.300-.3-.5-.9-.6-1.300-.4l-1.200.1z"/></svg></span></p>
         <p class="dish-desc" data-es="SALSA DE TOMATE, MOZZARELLA, NDUJA" data-en="TOMATO SAUCE, MOZZARELLA, NDUJA">SALSA DE TOMATE, MOZZARELLA, NDUJA</p>
       </div>
       <div class="dish-price">12,50 €</div>
     </div>
     <div class="dish">
       <div class="dish-info">
-        <p class="dish-name" data-es="Pizza Romana" data-en="Roman Pizza">Pizza Romana</p>
-        <p class="dish-desc" data-es="MOZZARELLA, GORGONZOLA, PECORINO, CEBOLLA ROJA CARAMELIZADA" data-en="MOZZARELLA, GORGONZOLA, PECORINO, CARAMELIZED RED ONION">MOZZARELLA, GORGONZOLA, PECORINO, CEBOLLA ROJA CARAMELIZADA</p>
+        <p class="dish-name"><span data-es="Pizza Romana" data-en="Roman Pizza">Pizza Romana</span><span class="alg">1-7</span></p>
+        <p class="dish-desc" data-es="MOZZARELLA, GORGONZOLA, PECORINO, CEBOLLA CARAMELIZADA" data-en="MOZZARELLA, GORGONZOLA, PECORINO, CARAMELIZED ONION">MOZZARELLA, GORGONZOLA, PECORINO, CEBOLLA CARAMELIZADA</p>
       </div>
       <div class="dish-price">14,90 €</div>
     </div>
     <div class="dish">
       <div class="dish-info">
-        <p class="dish-name" data-es="Marinara" data-en="Marinara">Marinara</p>
-        <p class="dish-desc" data-es="SALSA DE TOMATE, AJO, ORÉGANO, ACEITE DE OLIVA EXTRA" data-en="TOMATO SAUCE, GARLIC, OREGANO, EXTRA VIRGIN OLIVE OIL">SALSA DE TOMATE, AJO, ORÉGANO, ACEITE DE OLIVA EXTRA</p>
+        <p class="dish-name"><span data-es="Marinara" data-en="Marinara">Marinara</span><span class="alg">1-9</span></p>
+        <p class="dish-desc" data-es="SALSA DE TOMATE, ACEITE DE AJO, ORÉGANO" data-en="TOMATO SAUCE, GARLIC OIL, OREGANO">SALSA DE TOMATE, ACEITE DE AJO, ORÉGANO</p>
       </div>
       <div class="dish-price">9,80 €</div>
     </div>
@@ -1386,20 +1525,106 @@
 
   <section class="category" id="postres" hidden>
     <h2 class="cat-title"><span class="title-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 6h8v3H8V6zm-1 4h10v3.5c0 .8-.7 1.5-1.5 1.5h-7c-.8 0-1.5-.7-1.5-1.5V10z"/><path d="M11 15h2v3h-2v-3z"/><path d="M6 19h12v1.5H6V19z"/><path d="M11 3.5h2v2.5h-2V3.5z"/></svg></span> <span data-es="Postres" data-en="Desserts">Postres</span></h2>
+    <div class="allergen-bar">
+      <button type="button" class="allergen-btn" aria-label="Alérgenos" data-title-es="Alérgenos" data-title-en="Allergens">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path class="alg-warn-triangle" d="M12 3.5 2.8 19.5h18.4L12 3.5z"/><path d="M12 10v4.2"/><path d="M12 16.9v.1"/></svg>
+        <span data-es="Alérgenos" data-en="Allergens">Alérgenos</span>
+      </button>
+    </div>
+    <div class="dish">
+      <div class="dish-info">
+        <p class="dish-name"><span data-es="Tiramisù" data-en="Tiramisù">Tiramisù</span><span class="alg">1-3-7</span></p>
+      </div>
+      <div class="dish-price">6,00 €</div>
+    </div>
+    <div class="dish">
+      <div class="dish-info">
+        <p class="dish-name"><span data-es="Tarta de queso al pistacho" data-en="Pistachio Cheesecake">Tarta de queso al pistacho</span><span class="alg">1-3-7-8</span></p>
+      </div>
+      <div class="dish-price">6,00 €</div>
+    </div>
+  </section>
 
-    <div class="dish">
-      <div class="dish-info">
-        <p class="dish-name" data-es="Tiramisù" data-en="Tiramisù">Tiramisù</p>
-        <p class="dish-desc" data-es="Postre italiano de café, mascarpone y cacao" data-en="Italian dessert with coffee, mascarpone and cocoa">Postre italiano de café, mascarpone y cacao</p>
-      </div>
-      <div class="dish-price">6,00 €</div>
+  <section class="category" id="alergenos" hidden>
+    <h2 class="cat-title"><span class="title-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="alg-warn-triangle" d="M12 3.5 2.8 19.5h18.4L12 3.5z"/><path d="M12 10v4.2"/><path d="M12 16.9v.1"/></svg></span> <span data-es="Alérgenos" data-en="Allergens">Alérgenos</span></h2>
+    <div class="allergen-bar">
+      <button type="button" class="allergen-back" aria-label="Volver" data-title-es="Volver a la carta" data-title-en="Back to the menu">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5 8 12l7 7"/></svg>
+        <span data-es="Volver a la carta" data-en="Back to the menu">Volver a la carta</span>
+      </button>
     </div>
-    <div class="dish">
-      <div class="dish-info">
-        <p class="dish-name" data-es="Tarta de queso y pistacho" data-en="Pistachio Cheesecake">Tarta de queso y pistacho</p>
-      </div>
-      <div class="dish-price">6,00 €</div>
-    </div>
+    <ul class="allergen-list">
+      <li>
+        <span class="alg-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2.5c.4 0 1.1.5 1.7 1.5.7 1.1 1.1 2.6 1.1 4.1 0 1.1-.2 2.1-.6 2.8.7.4 1.5 1.2 1.5 2.6 0 1.1-.5 1.9-1.2 2.5.2.5.3 1.2.3 1.8 0 2-1.2 3-2.8 3s-2.8-1-2.8-3c0-.6.1-1.3.3-1.8-.7-.6-1.2-1.4-1.2-2.5 0-1.4.8-2.2 1.5-2.6-.4-.7-.6-1.7-.6-2.8 0-1.5.4-3 1.1-4.1C10.9 3 11.6 2.5 12 2.5zm0 1.7c-.2 0-.6.4-1 1.1-.5.9-.8 2-.8 3.1 0 1 .2 1.8.5 2.3h2.6c.3-.5.5-1.3.5-2.3 0-1.1-.3-2.2-.8-3.1-.4-.7-.8-1.1-1-1.1zm-1.2 9c-.5.2-1 .6-1 1.3 0 .6.3 1 .7 1.3.3-.2.8-.3 1.3-.5-.3-.6-.6-1.4-.9-2.4-.1.1-.1.2-.1.3zm2.4 0c-.3 1-.6 1.8-.9 2.4.5.2 1 .3 1.3.5.4-.3.7-.7.7-1.3 0-.7-.5-1.1-1-1.3 0-.1 0-.2-.1-.3z"/></svg></span>
+        <span class="alg-num" aria-hidden="true">1</span>
+        <span class="alg-name" data-es="Gluten" data-en="Gluten">Gluten</span>
+      </li>
+      <li>
+        <span class="alg-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3.5c-1.1 0-2.1.4-2.9 1C8 4 6.6 4.3 5.5 5.6c-1.4 1.6-1.2 3.9.2 5.2.5.5 1.2.8 2 .9v1.5c0 1.7 1.1 3 2.6 3.5v1.1c0 .3.2.5.5.5h2.4c.3 0 .5-.2.5-.5v-1.1c1.5-.5 2.6-1.8 2.6-3.5V11.7c.8-.1 1.5-.4 2-.9 1.4-1.3 1.6-3.6.2-5.2C15.4 4.3 14 4 12.9 4.5c-.8-.6-1.8-1-2.9-1zm-5.1 4c.6-.7 1.5-.9 2.3-.6-.2.4-.3.9-.3 1.4 0 .4 0 .7.1 1.1-.5-.1-1.1-.3-1.5-.7-.4-.5-.5-.9-.6-1.2zm10.2 0c-.1.3-.2.7-.6 1.2-.4.4-.9.6-1.5.7.1-.4.1-.7.1-1.1 0-.5-.1-1-.3-1.4.8-.3 1.7-.1 2.3.6zM12 5.3c.8 0 1.5.4 2 1-.6.3-1.3.8-1.3 1.7v.4h-1.4v-.4c0-.9-.7-1.4-1.3-1.7.5-.6 1.2-1 2-1zm-1.4 4.5h2.8v2.3c0 1.3-.9 2.3-2 2.3h1.2c-1.1 0-2-1-2-2.3V9.8z"/></svg></span>
+        <span class="alg-num" aria-hidden="true">2</span>
+        <span class="alg-name" data-es="Crustáceos" data-en="Crustaceans">Crustáceos</span>
+      </li>
+      <li>
+        <span class="alg-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8.2 5.5c-1.5 1-2.4 2.8-2.4 4.7 0 1.2.4 2.3 1.1 3.1-.1.3-.2.7-.2 1.1 0 1.7 1.6 3 3.6 3s3.6-1.3 3.6-3c0-.4-.1-.8-.2-1.1.7-.8 1.1-1.9 1.1-3.1 0-1.9-.9-3.7-2.4-4.7-.7-.5-1.6-.8-2.5-.8s-1.8.3-2.5.8zm7.6 0c-.7-.5-1.6-.8-2.5-.8v1.6c.5 0 1 .2 1.4.5 1.1.7 1.7 2 1.7 3.4 0 .9-.3 1.7-.8 2.3.1.4.2.8.2 1.2 0 1.1-.6 2-1.5 2.5.6.2 1.3.3 2 .3 2 0 3.6-1.3 3.6-3 0-.4-.1-.8-.2-1.1.7-.8 1.1-1.9 1.1-3.1 0-1.9-.9-3.7-2.4-4.7-.5-.4-1.1-.6-1.6-.8zM12 6.3c1.5 0 2.7 1.4 2.7 3.2S13.5 12.7 12 12.7 9.3 11.3 9.3 9.5 10.5 6.3 12 6.3z"/></svg></span>
+        <span class="alg-num" aria-hidden="true">3</span>
+        <span class="alg-name" data-es="Huevos" data-en="Eggs">Huevos</span>
+      </li>
+      <li>
+        <span class="alg-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20.5 11.2c-.3-1.5-1.5-2.6-3-2.9.2-.5.3-1.1.3-1.7 0-1.6-.8-3-2.1-3.8-1.1-.7-2.5-.9-3.8-.4-1.5.5-2.6 1.9-2.9 3.5-2.3.2-4.3.8-5.7 2C2.2 9 1.5 10.4 1.5 12c0 1.3.6 2.4 1.5 3.1-.1.4-.2.9-.2 1.4 0 2.2 1.3 4.1 3.3 5 1.5.7 3.2.8 4.7.1.8.4 1.7.6 2.7.6 1.6 0 3.1-.6 4.2-1.6 1.3.3 2.7 0 3.7-1 1.3-.1.3 2-3.8.6-5.5zm-3.2 5.3c-.8.8-1.9 1.2-3 1.2-.8 0-1.5-.2-2.2-.6l-.6-.3-.6.4c-1 .6-2.3.5-3.3 0-1.4-.7-2.3-2-2.3-3.5 0-.4.1-.8.2-1.2l.2-.6-.5-.4C5.7 13 5.3 12.5 5.3 12c0-.8.4-1.5 1-2 1.1-.9 2.8-1.4 4.7-1.5h.7l.1-.7c.2-1.1.8-2 1.7-2.3.6-.2 1.3-.1 1.9.3.6.4 1 1 1 1.7 0 .3 0 .6-.1.8l-.2.6.6.3c.6.3 1 1 1 1.6 0 .5-.2 1-.6 1.3l-.5.4.3.6c.2.4.3.8.3 1.2 0 .8-.5 1.5-1.3 1.8z"/></svg></span>
+        <span class="alg-num" aria-hidden="true">4</span>
+        <span class="alg-name" data-es="Pescado" data-en="Fish">Pescado</span>
+      </li>
+      <li>
+        <span class="alg-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3.2c1.7 0 3.1 1 3.8 2.5 1.1-.6 2.4-1 3.6-.5 1.6.7 2.5 2.5 2 4.2-.3 1.1-1.1 2-2.1 2.4.2.5.3 1.1.3 1.7 0 2.6-2 4.7-4.6 4.7H9c-2.6 0-4.6-2.1-4.6-4.7 0-.6.1-1.2.3-1.7-1-.4-1.8-1.3-2.1-2.4-.5-1.7.4-3.5 2-4.2 1.2-.5 2.5-.1 3.6.5C8.9 4.2 10.3 3.2 12 3.2zm0 1.7c-1.1 0-2 .7-2.3 1.7l-.2.7-.7-.3c-.7-.3-1.5-.4-2.1-.1-.9.4-1.4 1.4-1.2 2.4.2.6.6 1.1 1.2 1.3l.7.2-.2.6c-.1.4-.2.8-.2 1.1 0 1.6 1.3 2.9 2.9 2.9h6c1.6 0 2.9-1.3 2.9-2.9 0-.3-.1-.7-.2-1.1l-.2-.6.7-.2c.6-.2 1-.7 1.2-1.3.2-1-.3-2-1.2-2.4-.6-.3-1.4-.2-2.1.1l-.7.3-.2-.7c-.3-1-1.2-1.7-2.3-1.7z"/></svg></span>
+        <span class="alg-num" aria-hidden="true">5</span>
+        <span class="alg-name" data-es="Cacahuetes" data-en="Peanuts">Cacahuetes</span>
+      </li>
+      <li>
+        <span class="alg-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3c1 0 1.9.6 2.2 1.5 1.1-.3 2.3-.1 3.2.8 1.3 1.3 1.6 3.3.6 4.9-.3.6-.9 1.1-1.5 1.4.1.4.2.8.2 1.2 0 1.4-.7 2.6-1.8 3.2v2.3c0 .3-.2.5-.5.5h-4.6c-.3 0-.5-.2-.5-.5v-2.3c-1.1-.6-1.8-1.8-1.8-3.2 0-.4.1-.8.2-1.2-.6-.3-1.2-.8-1.5-1.4-1-1.6-.7-3.6.6-4.9.9-.9 2.1-1.1 3.2-.8C10.1 3.6 11 3 12 3zm0 1.7c-.3 0-.6.2-.7.6l-.2.7-.7-.2c-.7-.2-1.5 0-2 .5-.8.8-1 2.1-.4 3.1.3.4.7.7 1.2.9l.6.2-.2.6c-.1.3-.1.5-.1.8 0 1 .6 1.8 1.5 2.1l.5.1v2h2.2v-2l.5-.1c.9-.3 1.5-1.1 1.5-2.1 0-.3 0-.5-.1-.8l-.2-.6.6-.2c.5-.2.9-.5 1.2-.9.6-1 .4-2.3-.4-3.1-.5-.5-1.3-.7-2-.5l-.7.2-.2-.7c-.1-.4-.4-.6-.7-.6z"/></svg></span>
+        <span class="alg-num" aria-hidden="true">6</span>
+        <span class="alg-name" data-es="Soja" data-en="Soy">Soja</span>
+      </li>
+      <li>
+        <span class="alg-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.2 3.3c-.5 0-.9.4-.9.9v.9H7.8c-1.3 0-2.3 1-2.3 2.3v10.3c0 1.3 1 2.3 2.3 2.3h8.4c1.3 0 2.3-1 2.3-2.3V7.4c0-1.3-1-2.3-2.3-2.3h-.5V4.2c0-.5-.4-.9-.9-.9H9.2zm0 1.7h5.6v.9H9.2V5zm-1.4 2.6h8.4c.3 0 .6.3.6.6v10.3c0 .3-.3.6-.6.6H7.8c-.3 0-.6-.3-.6-.6V8.2c0-.3.3-.6.6-.6zm1.2 2c-.3 0-.5.2-.5.5v6.5c0 .3.2.5.5.5h5.8c.3 0 .5-.2.5-.5V9.5c0-.3-.2-.5-.5-.5H9z"/></svg></span>
+        <span class="alg-num" aria-hidden="true">7</span>
+        <span class="alg-name" data-es="Lácteos" data-en="Dairy">Lácteos</span>
+      </li>
+      <li>
+        <span class="alg-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3.5c2 0 3.8 1.3 4.5 3.3 1.4-.3 2.9.3 3.8 1.7 1.2 1.8 1 4.1-.6 5.6-.7.7-1.7 1.2-2.7 1.3-.3 1.4-1.1 2.5-2.3 3.2-1.1.6-2.4.7-3.5.3-1.1.4-2.4.3-3.5-.3-1.2-.7-2-1.8-2.3-3.2-1-.1-2-.6-2.7-1.3-1.6-1.5-1.8-3.8-.6-5.6.9-1.4 2.4-2 3.8-1.7.7-2 2.5-3.3 4.5-3.3zm0 1.7c-1.3 0-2.5.9-3 2.2l-.2.7-.7.2c-1 .2-2.1-.2-2.7-1.2-.8 1.2-.6 2.8.4 3.8.5.5 1.1.7 1.7.8l.7.1-.1.7c-.2.9.3 1.8 1.2 2.3.7.4 1.5.4 2.2 0l.5-.3.5.3c.7.4 1.5.4 2.2 0 .9-.5 1.4-1.4 1.2-2.3l-.1-.7.7-.1c.6-.1 1.2-.3 1.7-.8 1-1 .1.2-2.8.4-3.8-.6-1-1.7-.1.4-2.7-1.2l-.7-.2-.2-.7c-.5-1.3-1.7-2.2-3-2.2z"/></svg></span>
+        <span class="alg-num" aria-hidden="true">8</span>
+        <span class="alg-name" data-es="Frutos de cáscara" data-en="Tree nuts">Frutos de cáscara</span>
+      </li>
+      <li>
+        <span class="alg-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M11.2 2.8c.3-.4.9-.5 1.3-.2l1.2.9 1.2-.5c.4-.2.9 0 1.1.4l.7 1.3 1.3.3c.5.1.7.6.6 1l-.3 1.3.7 1.1c.3.4.1.9-.2 1.2l-1.1.8.2 1.3c.1.5-.3.9-.7 1l-1.3.2-.7 1.2c-.2.4-.7.6-1.1.4l-1.2-.5-1.2.9c-.4.3-1 .2-1.3-.2l-.8-1.1-1.3.2c-.5.1-.9-.3-1-.7l-.2-1.3-1.2-.7c-.4-.3-.5-.8-.2-1.2l.9-1.1-.5-1.2c-.2-.4 0-.9.4-1.1l1.3-.7.3-1.3c.1-.5.6-.7 1-.6l1.3.3 1.1-.7zm.9 2.2-.7.5-.1.1-.8-.2-.2.8.1.1-.6.7.5.6-.1.1-.2.8.8.2.1.1.7-.5.1-.1.8.2.2-.8-.1-.1.6-.7-.5-.6.1-.1.2-.8-.8-.2-.1-.1zm-.1 4.5c-1.2 0-2.2 1-2.2 2.2s1 2.2 2.2 2.2 2.2-1 2.2-2.2-1-2.2-2.2-2.2zm0 1.6c.3 0 .6.3.6.6s-.3.6-.6.6-.6-.3-.6-.6.3-.6.6-.6z"/></svg></span>
+        <span class="alg-num" aria-hidden="true">9</span>
+        <span class="alg-name" data-es="Apio" data-en="Celery">Apio</span>
+      </li>
+      <li>
+        <span class="alg-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M10.2 2.8c-.5 0-1 .4-1 .9v.7H8.7c-1.3 0-2.3 1-2.3 2.3v11.7c0 1.3 1 2.3 2.3 2.3h8.6c1.3 0 2.3-1 2.3-2.3V6.7c0-1.3-1-2.3-2.3-2.3h-.5V3.7c0-.5-.4-.9-1-.9h-5.6zm0 1.7h5.6v.7h-5.6v-.7zM8.7 6.1h8.6c.3 0 .6.3.6.6v11.7c0 .3-.3.6-.6.6H8.7c-.3 0-.6-.3-.6-.6V6.7c0-.3.3-.6.6-.6zm2 1.8c-.3 0-.5.2-.5.5v2c0 .3.2.5.5.5h2.4c.3 0 .5-.2.5-.5v-2c0-.3-.2-.5-.5-.5h-2.4zm0 3.6c-.3 0-.5.2-.5.5v4.6c0 .3.2.5.5.5h2.4c.3 0 .5-.2.5-.5v-4.6c0-.3-.2-.5-.5-.5h-2.4z"/></svg></span>
+        <span class="alg-num" aria-hidden="true">10</span>
+        <span class="alg-name" data-es="Mostaza" data-en="Mustard">Mostaza</span>
+      </li>
+      <li>
+        <span class="alg-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2.8c.4 0 .8.2 1 .6l1.1 2.5c.7.2 1.4.7 1.9 1.3l2.5-.4c.5-.1 1 .2 1.2.6l1.3 2.2c.2.4.1 1-.3 1.2l-2.1 1.3c0 .4 0 .8-.1 1.1l1.9 1.7c.3.3.4.8.1 1.2l-1.4 2c-.2.4-.8.5-1.2.3l-2.3-1.2c-.4.4-.9.7-1.4.9l-.4 2.5c-.1.5-.5.8-1 .8h-2.4c-.5 0-.9-.3-1-.8l-.4-2.5c-.5-.2-1-.5-1.4-.9l-2.3 1.2c-.4.2-1 .1-1.2-.3l-1.4-2c-.3-.4-.2-.9.1-1.2l1.9-1.7c-.1-.3-.1-.7-.1-1.1L3.6 12c-.4-.2-.5-.8-.3-1.2l1.3-2.2c.2-.4.7-.7 1.2-.6l2.5.4c.5-.6 1.2-1.1 1.9-1.3L11 3.4c.2-.4.6-.6 1-.6zm0 1.8-.8 1.9-.3.1c-.9.3-1.6.8-2.2 1.6l-.2.3-.3-.1-1.9-.3-.6 1 1.6 1 .2.2c-.1.4-.1.9 0 1.3l.1.3-.2.2-1.4 1.3.4.6 1.7-.9.3-.1.2.2c.4.5 1 .9 1.6 1.1l.3.1.3 1.9h.8l.3-1.9.3-.1c.6-.2 1.2-.6 1.6-1.1l.2-.2.3.1 1.7.9.4-.6-1.4-1.3-.2-.2.1-.3c.1-.4.1-.9 0-1.3l.2-.2 1.6-1-.6-1-1.9.3-.3.1-.2-.3c-.6-.8-1.3-1.3-2.2-1.6l-.3-.1L12 4.6z"/></svg></span>
+        <span class="alg-num" aria-hidden="true">11</span>
+        <span class="alg-name" data-es="Sésamo" data-en="Sesame">Sésamo</span>
+      </li>
+      <li>
+        <span class="alg-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7.8 3.5c-.7 0-1.3.6-1.3 1.3v.9H6c-1.3 0-2.3 1-2.3 2.3v9.3c0 1.3 1 2.3 2.3 2.3h3.7c1.3 0 2.3-1 2.3-2.3V8c0-1.3-1-2.3-2.3-2.3h-.5v-.9c0-.7-.6-1.3-1.3-1.3H7.8zm8.4 0c-.7 0-1.3.6-1.3 1.3v.9h-.5c-1.3 0-2.3 1-2.3 2.3v9.3c0 1.3 1 2.3 2.3 2.3H18c1.3 0 2.3-1 2.3-2.3V8c0-1.3-1-2.3-2.3-2.3h-.5v-.9c0-.7-.6-1.3-1.3-1.3h-1.5zM7.8 5.2h1.5v.9H7.8v-.9zm8.4 0h1.5v.9h-1.5v-.9zM6 7.4h3.7c.3 0 .6.3.6.6v9.3c0 .3-.3.6-.6.6H6c-.3 0-.6-.3-.6-.6V8c0-.3.3-.6.6-.6zm8.4 0H18c.3 0 .6.3.6.6v9.3c0 .3-.3.6-.6.6h-3.7c-.3 0-.6-.3-.6-.6V8c0-.3.3-.6.6-.6zM7.2 9.5v7.2h1.8V9.5H7.2zm8.4 0v7.2h1.8V9.5h-1.8z"/></svg></span>
+        <span class="alg-num" aria-hidden="true">12</span>
+        <span class="alg-name" data-es="Sulfitos" data-en="Sulphites">Sulfitos</span>
+      </li>
+      <li>
+        <span class="alg-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8.5 6.2a2.8 2.8 0 1 1 0 5.6 2.8 2.8 0 0 1 0-5.6zm7 0a2.8 2.8 0 1 1 0 5.6 2.8 2.8 0 0 1 0-5.6zM12 12.5a2.8 2.8 0 1 1 0 5.6 2.8 2.8 0 0 1 0-5.6zm-3.5-4.5a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2zm7 0a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2zM12 14.2a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2z"/></svg></span>
+        <span class="alg-num" aria-hidden="true">13</span>
+        <span class="alg-name" data-es="Altramuces" data-en="Lupin">Altramuces</span>
+      </li>
+      <li>
+        <span class="alg-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3.3c3.2 0 6 2 6.9 4.9.4 1.1.3 2.3-.2 3.3-.5 1.2-1.5 2.1-2.8 2.6-.3 1.4-1.1 2.5-2.3 3.2-1.1.6-2.4.7-3.5.3-1.1.4-2.4.3-3.5-.3-1.2-.7-2-1.8-2.3-3.2-1.3-.5-2.3-1.4-2.8-2.6-.5-1-.6-2.2-.2-3.3C6 5.3 8.8 3.3 12 3.3zm0 1.7c-2.5 0-4.7 1.5-5.5 3.7-.2.7-.2 1.5.1 2.2.4.8 1.1 1.4 2 1.7l.6.2-.1.6c-.2.9.3 1.8 1.2 2.3.7.4 1.5.4 2.2 0l.5-.3.5.3c.7.4 1.5.4 2.2 0 .9-.5 1.4-1.4 1.2-2.3l-.1-.6.6-.2c.9-.3 1.6-.9 2-1.7.3-.7.3-1.5.1-2.2-.8-2.2-3-3.7-5.5-3.7zm-2.8 3.8c-.4 0-.7.3-.7.7s.3.7.7.7.7-.3.7-.7-.3-.7-.7-.7zm5.6 0c-.4 0-.7.3-.7.7s.3.7.7.7.7-.3.7-.7-.3-.7-.7-.7zm-4.2 2.3c-.4 0-.7.3-.7.7s.3.7.7.7.7-.3.7-.7-.3-.7-.7-.7zm2.8 0c-.4 0-.7.3-.7.7s.3.7.7.7.7-.3.7-.7-.3-.7-.7-.7z"/></svg></span>
+        <span class="alg-num" aria-hidden="true">14</span>
+        <span class="alg-name" data-es="Moluscos" data-en="Molluscs">Moluscos</span>
+      </li>
+    </ul>
   </section>
 
   <section class="category" id="bebidas">
@@ -1438,17 +1663,17 @@
     <div class="subcategory" id="sub-cafeteria">
       <div class="dish"><div class="dish-info"><p class="dish-name" data-es="Café solo" data-en="Espresso">Café solo</p></div><div class="dish-price">1,30 €</div></div>
       <div class="dish"><div class="dish-info"><p class="dish-name" data-es="Café cortado" data-en="Cortado">Café cortado</p></div><div class="dish-price">1,50 €</div></div>
-      <div class="dish"><div class="dish-info"><p class="dish-name" data-es="Café descafeinado" data-en="Decaf Coffee">Café descafeinado</p></div><div class="dish-price">1,40 €</div></div>
+      <div class="dish"><div class="dish-info"><p class="dish-name" data-es="Café descafeinado" data-en="Decaf Coffee">Café descafeinado</p></div><div class="dish-price">1,50 €</div></div>
       <div class="dish"><div class="dish-info"><p class="dish-name" data-es="Cappuccino" data-en="Cappuccino">Cappuccino</p></div><div class="dish-price">2,00 €</div></div>
       <div class="dish"><div class="dish-info"><p class="dish-name" data-es="Café con leche" data-en="Coffee with Milk">Café con leche</p></div><div class="dish-price">2,00 €</div></div>
       <div class="dish"><div class="dish-info"><p class="dish-name" data-es="Café shakerato frío" data-en="Iced Shakerato Coffee">Café shakerato frío</p></div><div class="dish-price">2,00 €</div></div>
       <div class="dish"><div class="dish-info"><p class="dish-name" data-es="Latte macchiato" data-en="Latte Macchiato">Latte macchiato</p></div><div class="dish-price">2,00 €</div></div>
       <div class="dish"><div class="dish-info"><p class="dish-name" data-es="Bombón" data-en="Bombón">Bombón</p></div><div class="dish-price">1,50 €</div></div>
-      <div class="dish"><div class="dish-info"><p class="dish-name" data-es="Carajillo" data-en="Carajillo">Carajillo</p></div><div class="dish-price">1,50 €</div></div>
-      <div class="dish"><div class="dish-info"><p class="dish-name" data-es="Café del tiempo" data-en="Iced Coffee">Café del tiempo</p></div><div class="dish-price">1,50 €</div></div>
+      <div class="dish"><div class="dish-info"><p class="dish-name" data-es="Carajillo" data-en="Carajillo">Carajillo</p></div><div class="dish-price">1,70 €</div></div>
+      <div class="dish"><div class="dish-info"><p class="dish-name" data-es="Café del tiempo" data-en="Iced Coffee">Café del tiempo</p></div><div class="dish-price">1,70 €</div></div>
       <div class="dish"><div class="dish-info"><p class="dish-name" data-es="Café doble" data-en="Double Espresso">Café doble</p></div><div class="dish-price">2,00 €</div></div>
       <div class="dish"><div class="dish-info"><p class="dish-name" data-es="Colacao" data-en="Colacao">Colacao</p></div><div class="dish-price">1,50 €</div></div>
-      <div class="dish"><div class="dish-info"><p class="dish-name" data-es="Americano" data-en="Americano">Americano</p></div><div class="dish-price">1,50 €</div></div>
+      <div class="dish"><div class="dish-info"><p class="dish-name" data-es="Americano" data-en="Americano">Americano</p></div><div class="dish-price">1,70 €</div></div>
       <div class="dish"><div class="dish-info"><p class="dish-name" data-es="Infusiones" data-en="Herbal Teas">Infusiones</p></div><div class="dish-price">2,00 €</div></div>
       <div class="dish"><div class="dish-info"><p class="dish-name" data-es="Zumo" data-en="Juice">Zumo</p><p class="dish-desc" data-es="naranja • melocotón • piña • tomate" data-en="orange • peach • pineapple • tomato">naranja • melocotón • piña • tomate</p></div><div class="dish-price">3,50 €</div></div>
     </div>
@@ -1498,6 +1723,7 @@
       <div class="dish"><div class="dish-info"><p class="dish-name" data-es="Feudo Arancio Grillo" data-en="Feudo Arancio Grillo">Feudo Arancio Grillo</p></div><div class="dish-price price-group"><span class="price-label" data-es="copa" data-en="glass">copa</span> <span>4,00 €</span><span class="price-sep">/</span><span class="price-label" data-es="botella" data-en="bottle">botella</span> <span>19,00 €</span></div></div>
       <div class="dish"><div class="dish-info"><p class="dish-name" data-es="La Colombera Alice" data-en="La Colombera Alice">La Colombera Alice</p></div><div class="dish-price price-group"><span class="price-label" data-es="copa" data-en="glass">copa</span> <span>5,00 €</span><span class="price-sep">/</span><span class="price-label" data-es="botella" data-en="bottle">botella</span> <span>26,00 €</span></div></div>
       <div class="dish"><div class="dish-info"><p class="dish-name" data-es="Chardonnay Flor de Sabina" data-en="Chardonnay Flor de Sabina">Chardonnay Flor de Sabina</p></div><div class="dish-price price-group"><span class="price-label" data-es="copa" data-en="glass">copa</span> <span>3,50 €</span><span class="price-sep">/</span><span class="price-label" data-es="botella" data-en="bottle">botella</span> <span>18,00 €</span></div></div>
+      <div class="dish"><div class="dish-info"><p class="dish-name" data-es="Verdejo Viña Eguia" data-en="Verdejo Viña Eguia">Verdejo Viña Eguia</p></div><div class="dish-price price-group"><span class="price-label" data-es="copa" data-en="glass">copa</span> <span>3,50 €</span><span class="price-sep">/</span><span class="price-label" data-es="botella" data-en="bottle">botella</span> <span>15,00 €</span></div></div>
       <div class="dish"><div class="dish-info"><p class="dish-name" data-es="Casa Turús Malvasía" data-en="Casa Turús Malvasía">Casa Turús Malvasía</p></div><div class="dish-price">40,00 €</div></div>
       <div class="dish"><div class="dish-info"><p class="dish-name" data-es="Señorío de Moixent Malvasía" data-en="Señorío de Moixent Malvasía">Señorío de Moixent Malvasía</p></div><div class="dish-price">110,00 €</div></div>
 
@@ -1593,7 +1819,9 @@
     }
 
     // --- Filtro categorie: mostra solo la sezione selezionata ---
+    var lastCategory = 'principales';
     function showCategory(targetId) {
+      if (targetId !== 'alergenos') lastCategory = targetId;
       document.body.classList.remove('is-home');
       document.querySelectorAll('section.category').forEach(function (sec) {
         var show = (sec.id === targetId);
@@ -1612,6 +1840,22 @@
         e.stopPropagation();
         var target = btn.getAttribute('data-cat');
         if (target) showCategory(target);
+      });
+    });
+
+    // --- Pagina Alérgenos: si apre solo toccando l'icona; "Volver" torna al menù di partenza ---
+    document.querySelectorAll('.allergen-btn').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        showCategory('alergenos');
+      });
+    });
+    document.querySelectorAll('.allergen-back').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        showCategory(lastCategory);
       });
     });
 
